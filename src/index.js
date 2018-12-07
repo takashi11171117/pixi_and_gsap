@@ -135,9 +135,8 @@ var colors = [
   0x95a5a6, 0x7f8c8d
 ];
 
-for(var i = 0; i < colors.length; i++) {
-  // 矩形グラフィック要素を生成
-  var rectangle = new PIXI.Graphics();
+for(let i = 0; i < colors.length; i++) {
+  let rectangle = new PIXI.Graphics();
   rectangle.beginFill(colors[i]);
   rectangle.drawRect(-5, 0, 5, 100);
   rectangle.alpha = 0;
@@ -145,4 +144,17 @@ for(var i = 0; i < colors.length; i++) {
   stage.addChild(rectangle);
 
   animateDropTween(rectangle);
+}
+
+let particle_num = 8;
+let x = 100;
+
+for (let i = 0; i < particle_num; i++) {
+  let rectangle = new PIXI.Graphics();
+  rectangle.beginFill('0xffffff');
+  rectangle.drawRect(x, 0, 5, 100);
+  rectangle.alpha = 1;
+
+  stage.addChild(rectangle);
+  x = 100 * (i + 1);
 }

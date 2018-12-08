@@ -6,6 +6,16 @@ module.exports = {
   // メインとなるJavaScriptファイル（エントリーポイント）
   entry: './src/index.js',
 
+  output: {
+    path: __dirname + '/dist',
+    filename: 'main.js'
+  },
+
+  devServer: {
+    contentBase: 'dist',
+    port: 8080
+  },
+
   module: {
     rules: [
       {
@@ -26,5 +36,9 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  externals: {
+    'pixi.js': 'PIXI',
+    'gsap': 'gsap'
+  },
 };
